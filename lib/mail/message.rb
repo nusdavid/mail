@@ -2044,6 +2044,9 @@ module Mail
 
     def identify_and_set_transfer_encoding
         if body && body.multipart?
+      self.transport_encoding = body.encoding
+      
+        if body# && body.multipart?
             self.content_transfer_encoding = @transport_encoding
         else
             self.content_transfer_encoding = body.get_best_encoding(@transport_encoding)

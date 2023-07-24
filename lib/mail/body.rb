@@ -157,6 +157,7 @@ module Mail
         be = get_best_encoding(transfer_encoding)
         dec = Mail::Encodings::get_encoding(encoding)
         enc = Mail::Encodings::get_encoding(be)
+        return raw_source
         if dec.nil?
             # Cannot decode, so skip normalization
             raw_source
